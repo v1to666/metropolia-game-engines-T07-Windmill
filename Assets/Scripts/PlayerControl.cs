@@ -1,48 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public float moveSpeed; // 5
-    public float rotateSpeed; // 200
     public CharacterController controller;
 
-    // Start is called before the first frame update
-    void Start()
+    private float moveSpeed = 10f;
+    private float rotateSpeed = 2f;
+
+    private float verticalVelocity;
+
+    private void Start()
     {
-       
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-  
-    void FixedUpdate()
+    private void Update()
     {
-        float xMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        float zMovement = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
-        float yMovement = Physics.gravity.y;
-        Vector3 moveDirection = new Vector3(xMovement, yMovement, zMovement);
-        controller.Move(moveDirection * Time.deltaTime);
-        transform.Translate(xMovement, 0, zMovement);
+        float xMovement = Input.GetAxis("Horizontal");
+        float zMovement = Input.GetAxis("Vertical");
 
-        float mouseInput = Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
-        Vector3 lookHere = new Vector3(0, mouseInput, 0);
-        transform.Rotate(lookHere);
+        Vector3 moveDirection = transform.right * xMovement + transform.forward * zMovement;
 
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
+        if (controller.isGrounded && verticalVelocity < 0f)
+        {
+            verticalVelocity = -2f;
+        }
 
-    }
+        verticalVelocity += Physics.gravity.y * Time.deltaTime;
 
-    public void Update()
-    {
+        controller.Move(Vector3.up * verticalVelocity * Time.deltaTime);
 
-    }
+        float mouseInput = Input.GetAxis("Mouse X") * rotateSpeed;
 
-    private void OnTriggerEnter(Collider other)
-    {
-
-    }
-    private void OnTriggerExit(Collider other)
-    {
-
+        transform.Rotate(0f, mouseInput, 0f);
     }
 }
