@@ -552,9 +552,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1909128922}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf8611a4fd672f4e88355106fc22524, type: 3}
+  m_Script: {fileID: 11500000, guid: 29b6db04408c405478944ed3e7b29e1c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::WindmillBlades
+  _lever: {fileID: 1002835150}
 --- !u!1 &2043579690
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +565,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2043579695}
+  - component: {fileID: 2043579698}
   - component: {fileID: 2043579694}
   - component: {fileID: 2043579693}
   - component: {fileID: 2043579692}
@@ -721,6 +723,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a89f3f27ffdf245861488ba0fcc3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
+--- !u!114 &2043579698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043579690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07facfb4df84c9f478a0d7f6f1ff7d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!4 &328456307504955613
 Transform:
   m_ObjectHideFlags: 0
@@ -1050,6 +1064,8 @@ GameObject:
   - component: {fileID: 876280881938429720}
   - component: {fileID: 4327370172235427418}
   - component: {fileID: 1668854873593048383}
+  - component: {fileID: 4905740834923037934}
+  - component: {fileID: 4905740834923037933}
   m_Layer: 0
   m_Name: tuulimylly_v007:tuulimylly_v007:Ovi
   m_TagString: Untagged
@@ -1057,6 +1073,40 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &4905740834923037933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905740834923037932}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 2, z: 6}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4905740834923037934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4905740834923037932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3365e0e31fadb469d5304ea6d1fe72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
+  _animator: {fileID: 919132148442270441}
 --- !u!1 &6472267301277442863
 GameObject:
   m_ObjectHideFlags: 0
