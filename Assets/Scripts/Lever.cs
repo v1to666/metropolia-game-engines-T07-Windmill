@@ -39,11 +39,15 @@ public class Lever : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        _leverStateIndex++;
-        
-        UpdateRotation();
-        
-        OnInteract?.Invoke(_bladeSpeeds[_leverStateIndex % _leverStates.Length]);
+        _leverStateIndex = (_leverStateIndex + 1) % _leverStates.Length;
+
+        _currentRotation = _leverStates[_leverStateIndex];
+
+        float speed = _bladeSpeeds[_leverStateIndex];
+
+        Debug.Log($"State: {_leverStateIndex}, Speed: {speed}");
+
+        OnInteract?.Invoke(speed);
     }
 
     private void UpdateRotation()
